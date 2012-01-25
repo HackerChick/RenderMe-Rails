@@ -1,0 +1,11 @@
+		 <select multiple="multiple" id="selected_item_tags">
+				<% @tags.each do |tag| %>
+					 <option value="<%=tag.id%>" 
+							<% if @itemTags.include?(tag) %>
+							  selected="selected"
+							<% end %>
+					 ><%=tag.name%>
+					 </option>
+				<% end %>
+		 </select>
+		 

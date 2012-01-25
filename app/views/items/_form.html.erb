@@ -1,0 +1,53 @@
+<%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :artist %><br />
+    <%= f.text_field :artist %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br />
+		<%= f.select :category_id, @categories.collect {|c| [c.name, c.id]} %>
+  </div>
+	
+	<div class="field">
+		 <%= f.label :tags %><br />
+		 <ul class="checkbox-list">
+		 <% @tags.each do |tag| %>
+   		 <li><%= check_box_tag "item[tag_ids][]", tag.id, @itemTags.include?(tag)%> <%= tag.name %></li>
+		 <% end %>
+	</div>
+	
+  <div class="field">
+    <%= f.check_box :isOwned %> Own
+  </div>
+  <div class="field">
+    <%= f.label :productURL %><br />
+    <%= f.text_field :productURL %>
+  </div>
+  <div class="field">
+    <%= f.label :imageFile %><br />
+    <%= f.text_field :imageFile %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br />
+    <%= f.number_field :rating %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

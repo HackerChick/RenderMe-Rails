@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @item.name %>
+</p>
+
+<p>
+  <b>Artist:</b>
+  <%= @item.artist %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @item.category.name %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @item.tagNames.to_sentence %>
+</p>
+
+<p>
+  <b>Isowned:</b>
+  <%= @item.isOwned %>
+</p>
+
+<p>
+  <b>Producturl:</b>
+  <%= @item.productURL %>
+</p>
+
+<p>
+  <b>Imagefile:</b>
+  <%= @item.imageFile %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @item.rating %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
